@@ -9,4 +9,5 @@ export interface AuthResponse {
     curriculumPath: string;
     experience: string;
     education: string;
+    role: string;
 }

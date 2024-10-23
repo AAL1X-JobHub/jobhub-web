@@ -1,1 +1,63 @@
-<p>register works!</p>
+<section class="register-container">
+    <div class="register-card">
+      <div class="register-image">
+       <!-- <img src="assets/images/register-image.png" alt="Imagen de registro">-->
+        <div class="register-overlay">
+          <h3 class="register-text">Welcome to JobHub</h3>
+          <p class="register-description"> On JobHub, professionals find job opportunities and companies discover new talents. Join our community and start your path to career success today.</p>
+        </div>
+      </div>
+      <div class="register-form">
+        <h2>Create Account - User</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="firstName" placeholder="Enter your name">
+            @if(controlHasError('firstName', 'required')){
+              <mat-error>This field is required</mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" type="lastName" placeholder="Enter your last name">
+            @if(controlHasError('lastName', 'required')){
+              <mat-error>This field is required</mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="Enter your email">
+            @if(controlHasError('email', 'required')){
+              <mat-error>This field is required</mat-error>
+            }
+            @if(controlHasError('email', 'email')){
+              <mat-error>Please enter a valid email</mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" placeholder="Enter your password">
+            @if(controlHasError('password', 'required')){
+              <mat-error>This filed is required</mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Shipping Address</mat-label>
+            <input matInput formControlName="shippingAddress" placeholder="Enter your shipping address">
+            @if(controlHasError('shippingAddress', 'required')){
+              <mat-error>This files is required</mat-error>
+            }
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="registerForm.invalid">
+            Sign Up
+          </button>
+        </form>
+        <p>Do you already have an account? <a routerLink="/auth/login">Sign in here</a></p>
+      </div>
+    </div>
+  </section>
