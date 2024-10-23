@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <!-- Opción "Libros" como enlace de texto simple -->
-          @if (true) {
+          @if (!isAuthenticated) {
             <li class="nav-item">
               <a class="nav-link" routerLink="/home">Jobs</a>
             </li>
@@ -17,7 +17,7 @@
             <li class="nav-item ms-2">
               <a class="btn btn-primary" routerLink="/auth/login">Login</a>
             </li>
-          } @else if(true) {
+          } @else {
             <!-- Opciones visibles solo si el usuario está autenticado -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown">

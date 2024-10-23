@@ -1,0 +1,47 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<div class="layout-dashboard">
+  <!-- Botón de Toggle para el Sidebar -->
+  <button
+    class="sidebar-toggle-btn"
+    [class.active]="isSidebarActive"
+    (click)="toggleSidebar()">
+    <span
+      class="navbar-toggler-icon"
+      [ngClass]="{'icon-white': !isSidebarActive, 'icon-black': isSidebarActive}">
+    </span>
+  </button>
+
+  <!-- Sidebar con opciones específicas -->
+  <div class="layout-sidebar" [class.collapsed]="isSidebarActive">
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="catalog" routerLinkActive="active">
+            <i class="fas fa-book"></i> Catálogo de Libros
+          </a>
+        </li>
+        <li>
+          <a routerLink="purchases" routerLinkActive="active">
+            <i class="fas fa-shopping-cart"></i> Mis Compras
+          </a>
+        </li>
+        <li>
+          <a routerLink="collection" routerLinkActive="active">
+            <i class="fas fa-bookmark"></i> Colección de Libros
+          </a>
+        </li>
+        <!-- Añade más enlaces según las rutas del cliente -->
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Contenido Principal -->
+  <div class="layout-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Footer -->
+<app-footer></app-footer>
