@@ -11,7 +11,7 @@
         <h2>Create Account - User</h2>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <mat-form-field class="form-field">
-            <mat-label>Name</mat-label>
+            <mat-label>First Name</mat-label>
             <input matInput formControlName="firstName" placeholder="Enter your name">
             @if(controlHasError('firstName', 'required')){
               <mat-error>This field is required</mat-error>
@@ -42,14 +42,6 @@
             <input matInput formControlName="password" type="password" placeholder="Enter your password">
             @if(controlHasError('password', 'required')){
               <mat-error>This filed is required</mat-error>
-            }
-          </mat-form-field>
-  
-          <mat-form-field class="form-field">
-            <mat-label>Shipping Address</mat-label>
-            <input matInput formControlName="shippingAddress" placeholder="Enter your shipping address">
-            @if(controlHasError('shippingAddress', 'required')){
-              <mat-error>This files is required</mat-error>
             }
           </mat-form-field>
   

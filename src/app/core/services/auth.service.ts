@@ -11,11 +11,13 @@ import { RegisterResponse } from '../../shared/models/register-response.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   private apiURL = `${environment.apiURL}/users`;
 
   private http= inject(HttpClient);
   private storageService = inject(StorageService);
+
   constructor() { }
   login(authRequest: AuthRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiURL}/login`, authRequest).pipe(

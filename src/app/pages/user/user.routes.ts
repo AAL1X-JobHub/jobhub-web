@@ -9,7 +9,7 @@ import { UpdateProfileComponent } from '../../shared/components/update-profile/u
 import { UserProfileComponent } from '../../shared/components/user-profile/user-profile.component';
 
 
-export const customerRoutes: Routes = [
+export const userRoutes: Routes = [
   {
     path: '',
     component: LayoutComponent,
@@ -21,6 +21,6 @@ export const customerRoutes: Routes = [
       { path: 'profile/update', component: UpdateProfileComponent },
       // Agrega más rutas según tus necesidades
      // { path: '', redirectTo: 'catalog', pathMatch: 'full' } // Redirigir a catalog por defecto
-    ]
-  }
+    ],
+  },
 ];

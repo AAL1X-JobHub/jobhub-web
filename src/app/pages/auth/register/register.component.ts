@@ -5,11 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatButtonModule, MatInputModule, MatCardModule, RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [MatButtonModule, MatInputModule, MatCardModule, RouterLink, FormsModule, ReactiveFormsModule, MatSnackBarModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -19,6 +20,7 @@ export class RegisterComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+  private snackBar = inject(MatSnackBar);
 
   constructor() {
     this.registerForm = this.fb.group({
@@ -26,7 +28,6 @@ export class RegisterComponent {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      shippingAddress: ['', Validators.required]
     })
   }
 
@@ -40,12 +41,18 @@ export class RegisterComponent {
       this.authService.register(userData).subscribe(
         response => {
           console.log('Successful registration', response);
-          this.router.navigate(['/login']);
+          this.router.navigate(['/auth/login']);
         },
         error => {
           console.error('Registration error', error);
         }
       );
     }
+  }
+
+  private showSnackBar(message: string): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000,
+    });
   }
 }
