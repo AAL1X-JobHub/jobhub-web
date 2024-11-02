@@ -1,5 +1,6 @@
 export interface AuthResponse {
     token: string;
+    roleName: string;
     firstName: string;
     lastName: string;
     degree: string;
@@ -9,5 +10,4 @@ export interface AuthResponse {
     curriculumPath: string;
     experience: string;
     education: string;
-    role: string;
 }

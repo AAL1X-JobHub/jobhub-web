@@ -1,0 +1,18 @@
+<mat-card class="job-card">
+    <mat-card-header>
+      <mat-card-title>{{ job.title }}</mat-card-title>
+      <mat-card-subtitle>Autor: {{ job.companyName }}</mat-card-subtitle>
+    </mat-card-header>
+  
+    <img mat-card-image [src]="job.location | apiImg" [alt]="job.title">
+  
+    <mat-card-content>
+      <p>{{ job.description }}</p>
+      <p>Precio: {{ job.salaryRange }}</p>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button mat-button (click)="viewDetails()">Ver detalles</button>
+    </mat-card-actions>
+  </mat-card>
+  

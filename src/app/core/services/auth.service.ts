@@ -39,7 +39,7 @@ export class AuthService {
 
   getUserRole(): string | null {
     const authData = this.storageService.getAuthData();
-    return authData ? authData.role : null;
+    return authData ? authData.roleName : null;
   }
 
   getUser(): AuthResponse | null {

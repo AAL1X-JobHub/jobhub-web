@@ -1,0 +1,36 @@
+@if(job){
+    <mat-card class="job-details-card">
+      <!-- Imagen del libro a la izquierda (o arriba en pantallas pequeñas) -->
+      <img mat-card-image class="job-cover" [src]="job.location| apiImg" [alt]="job.title">
+  
+      <!-- Contenido de los detalles a la derecha (o abajo en pantallas pequeñas) -->
+      <div class="job-content">
+        <mat-card-title class="job-title">{{ job.title }}</mat-card-title>
+        <mat-card-subtitle class="job-subtitle">Autor: {{ job.companyName }} - Categoría: {{ job.companyName }}</mat-card-subtitle>
+  
+        <mat-card-content>
+          <p class="job-description">{{ job.description }}</p>
+          <p class="job-salary"><strong>Salario:</strong> {{ job.salaryRange | currency }}</p>
+          <p class="job-date"><strong>Publicado el:</strong> {{ job.expirationDate | date }}</p>
+          <p class="job-date"><strong>Última actualización:</strong> {{ job.expirationDate | date }}</p>
+        </mat-card-content>
+  
+  
+        <div class="button-group">
+          @if(isAuthenticated && isUser) {
+            <!--<a [href]="job.filePath" target="_blank" class="download-link auth-required">Descargar libro</a>-->
+            <button class="add-to-cart-button auth-required" (click)="addToCart()">Agregar al carrito</button>
+            <button class="back-button" (click)="goBackToHome()">Regresar a Home</button>
+          }@else {
+            <button class="back-button" (click)="goBackToHome()">Regresar a Home</button>
+          }
+  
+        </div>
+  
+      </div>
+    </mat-card>
+  
+  }@else{
+    <p class="no-book-message">No se encontró el trabajo</p>
+  }
+  

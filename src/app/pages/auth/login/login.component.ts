@@ -24,8 +24,8 @@ export class LoginComponent {
   private router = inject(Router);
   private snackBar = inject(MatSnackBar);
 
-  private readonly USER_ROLE = 'USER';
-  private readonly COMPANY_ROLE = 'COMPANY';
+  private readonly USER = 'USER';
+  private readonly COMPANY = 'COMPANY';
   private readonly USER_ROUTE = '/user/portfolio';
   private readonly COMPANY_ROUTE = '/company/jobs/list';
   private readonly DEFAULT_ROUTE = '/public/home';
@@ -62,9 +62,9 @@ export class LoginComponent {
   private redirectUserBasedOnRole(): void {
     const userRole = this.authService.getUserRole();
 
-    if (userRole === this.USER_ROLE) {
+    if (userRole === this.USER) {
       this.router.navigate([this.USER_ROUTE]);
-    } else if (userRole === this.COMPANY_ROLE) {
+    } else if (userRole === this.COMPANY) {
       this.router.navigate([this.COMPANY_ROUTE]);
     } else {
       this.router.navigate([this.DEFAULT_ROUTE]);
